@@ -12,3 +12,5 @@ const STRINGS = {
     DB_ERROR: "Database error: %MSG%",
     SERVER_ERROR: "Internal server error"
 }
+
+module.exports = STRINGS;
