@@ -14,8 +14,8 @@ class ApiServer {
 
     start() {
         this.server.listen(this.CONFIG.PORT, () => {
-            console.log(STRINGS.SERVER_RUNNING.replace())
-        })
+            console.log(STRINGS.SERVER_RUNNING.replace("%PORT%", this.config.PORT));
+        });
     }
 
     setCors(res) {
