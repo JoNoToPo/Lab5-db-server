@@ -14,12 +14,12 @@ class ApiServer {
 
     start() {
         this.server.listen(this.CONFIG.PORT, () => {
-            console.log(STRINGS.SERVER_RUNNING.replace("%PORT%", this.config.PORT));
+            console.log(STRINGS.SERVER_RUNNING.replace("%PORT%", this.CONFIG.PORT));
         });
     }
 
     setCors(res) {
-        res.setHeader("Access-Control-Allow-Origin", this.config.ALLOWED_ORIGIN);
+        res.setHeader("Access-Control-Allow-Origin", this.CONFIG.ALLOWED_ORIGIN);
         res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
         res.setHeader("Access-Control-Allow-Headers", "Content-Type");
     }
@@ -39,7 +39,7 @@ class ApiServer {
         }
 
         const rawPath = req.url.split("?")[0];
-        const prefix = this.config.API_PREFIX;
+        const prefix = this.CONFIG.API_PREFIX;
 
         if (rawPath !== prefix && !rawPath.startsWith(prefix + "/")) {
             this.sendJson(res, 404, { error: STRINGS.NOT_FOUND });
@@ -145,7 +145,7 @@ class ApiServer {
             let body = "";
             req.on("data", (chunk) => {
                 body += chunk;
-                if (body.length > this.config.MAX_BODY_BYTES) {
+                if (body.length > this.CONFIG.MAX_BODY_BYTES) {
                     reject(new Error("too large"));
                     req.destroy();
                 }
