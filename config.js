@@ -15,6 +15,6 @@ const CONFIG = {
 
     READER_USER: process.env.DB_READER_USER || "lab5_reader",
     READER_PASSWORD: process.env.DB_READER_PASSWORD || "securepassword321"
-}
+};
 
 module.exports = CONFIG;
