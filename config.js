@@ -1,7 +1,7 @@
 // Claude was used as reference
 
 const CONFIG = {
-    PORT: ProcessingInstruction.env.PORT || 3000,
+    PORT: process.env.PORT || 3000,
     API_PREFIX: "/lab5/api/v1/sql",
     ALLOWED_ORIGIN: process.env.ALLOWED_ORIGIN || "*",
     MAX_BODY_BYTES: 1000,
